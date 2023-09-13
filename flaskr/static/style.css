@@ -24,3 +24,10 @@ nav ul li a, nav ul li span, header .action { display: block; padding: 0.5rem; }
 .content textarea { min-height: 12em; resize: vertical; }
 input.danger { color: #cc2f2e; }
 input[type=submit] { align-self: start; min-width: 10em; }
+.published {background-color: #f2f2f2;}
+.unpublished {background-color: #ffe6e6; /* A light red to indicate it's unpublished */}
+.alert {color: red; font-size: small; font-weight: bold;}
+.unpublished-note {font-size: 0.8em; color: red; font-weight: bold;}
+.error-page {text-align: center; margin-top: 50px;}
+.error-page h2 {color: #cc2f2e; /* red */}
+.error-page a {color: #377ba8; /* blue */}

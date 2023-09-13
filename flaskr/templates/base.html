@@ -14,11 +14,13 @@
   </ul>
 </nav>
 <section class="content">
+  {% block header %}
   <header>
-    {% block header %}{% endblock %}
+      <!-- Whatever content you want in the header. -->
   </header>
+  {% endblock %}
   {% for message in get_flashed_messages() %}
-    <div class="flash">{{ message }}</div>
+      <div class="flash">{{ message }}</div>
   {% endfor %}
   {% block content %}{% endblock %}
 </section>

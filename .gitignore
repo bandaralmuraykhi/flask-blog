@@ -1,14 +1,33 @@
-venv/
-
-*.pyc
+# Python-related files
 __pycache__/
-
-instance/
-
-.pytest_cache/
-.coverage
-htmlcov/
-
-dist/
-build/
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.pyc
+*.pyo
 *.egg-info/
+
+# Virtual environment
+venv/
+.venv/
+tests/
+
+# IDE or text editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+
+# Database files
+*.db
+
+# Compiled files
+*.pyc
+
+# OS-specific files
+.DS_Store
+Thumbs.db

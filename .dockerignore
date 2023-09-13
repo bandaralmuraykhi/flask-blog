@@ -1,0 +1,54 @@
+# Ignore specific files
+.env
+
+# Ignore directories and their contents
+logs/
+temp/
+tests/
+venv/
+instance/
+
+# Use wildcards for patterns
+*.log
+*.tmp
+
+# Byte-compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Configuration and secrets
+*.config
+*.json
+*.yaml
+*.yml
+*.env
+
+# Logs
+*.log
+
+# Local development databases
+*.db
+*.sqlite
+
+# Unit test / coverage reports
+htmlcov/
+.coverage
+
+# Git related
+.git/
+.gitignore
+
+# IDE specific
+*.idea/
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Miscellaneous
+*.bak
+*.swp
+*.swo

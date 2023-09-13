@@ -19,6 +19,8 @@ def close_db(e=None):
     db = g.pop('db', None)
 
     if db is not None:
+        if e:  # If there was an error, roll back any changes
+            db.rollback()
         db.close()
 
 
@@ -35,9 +37,7 @@ def init_db_command():
     init_db()
     click.echo('Initialized the database.')
 
+
 def init_app(app):
     app.teardown_appcontext(close_db)
     app.cli.add_command(init_db_command)
-
-
-

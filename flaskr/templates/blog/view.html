@@ -6,6 +6,9 @@
 
 {% block content %}
 <div>
+{% if 'published' in post and not post['published'] and g.user['id'] == post['author_id'] %}
+    <p><strong>This post is not published yet.</strong></p>
+{% endif %}
 <p class="body">{{ post['body'] | replace('\n', '<br>') | safe  }}</p>
 </div>
 {% endblock %}
