@@ -1,20 +1,28 @@
-# Use an official Python runtime as the base image
-FROM python:3.8
+# Use a base image
+FROM ubuntu:20.04
 
-# Set the working directory in the container
+FROM python:3.9-slim
+
+# Set the working directory in the container to /app
 WORKDIR /app
 
-# Copy the requirements file into the container
-COPY requirements.txt .
+# Create a new file using the 'touch' command
+RUN mkdir -p /instance && touch /instance/flaskr.sqlite
 
-# Install Python dependencies
-RUN pip install -r requirements.txt
+# Copy the current directory contents into the container at /app
+COPY . /app
+COPY flaskr/schema.sql /app/flaskr
 
-# Copy the rest of the application code to the container
-COPY . .
+# Install the required packages using pip
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose a port for the Flask application to listen on
-EXPOSE 5005
+# Make port 5004 available to the world outside this container
+EXPOSE 5004
 
-# Define the command to run when the container starts
-CMD ["python", "flask --app flaskr run --debug --port 5004"]
+# Define environment variable for Flask to run in production mode
+ENV FLASK_APP=flaskr
+ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_ENV=production
+
+# Run Flask when the container launches
+CMD ["flask", "run", "--port=5002"]
